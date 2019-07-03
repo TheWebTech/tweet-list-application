@@ -15,6 +15,10 @@ const CANNED_TWEET = {
   tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray'
 };
 
+/* functions needed*/
+/* Add Tweet */
+/* Remove last Tweet */
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#add-tweet').addEventListener('click', function() {
     const newTweet = document.createElement('div');
