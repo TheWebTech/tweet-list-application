@@ -19,6 +19,13 @@ const CANNED_TWEET = {
 /* Add Tweet */
 /* Remove last Tweet */
 
+var app = new Vue({
+  el: '#tweet-list',
+  data: {
+    message: 'Vue is working correctly!'
+  }
+})
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#add-tweet').addEventListener('click', function() {
     const newTweet = document.createElement('div');

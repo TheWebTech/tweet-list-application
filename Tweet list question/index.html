@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tweet list question</title>
-    <link rel="stylesheet" type="text/css" href="./styles/main.css">
-  <body>
-    <h1>Tweet list</h1>
-    <button id="add-tweet">Add</button>
-    <button id="remove-tweet">Remove</button>
-
-    <div id="tweet-container">
-    </div>
-    <script src="./lib/dev-vue.js"></script>
-    <!--<script src="./lib/vue.min.js"></script>   -->
-    <script src="./lib/jquery-2.1.4.min.js"></script>
-    <script src="./src/main.js"></script>
-  </body>
+<head>
+  <title>Tweet list question</title>
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+<body>
+  <main id="tweet-list">
+    <section role="toolbar" aria-label="Manage Tweets">
+      <h1>Tweet list</h1>
+      <button id="add-tweet">Add</button>
+      <button id="remove-tweet">Remove</button>
+    </section>
+    <section id="tweet-container" aria-label="List of tweets">
+      {{message}}
+    </section>
+  </main>
+  
+  <script src="./lib/dev-vue.js"></script>
+  <!--<script src="./lib/vue.min.js"></script>   -->
+  <script src="./lib/jquery-2.1.4.min.js"></script>
+  <script src="./src/main.js"></script>
+</body>
 </html>
