@@ -5,18 +5,18 @@
   <link rel="stylesheet" type="text/css" href="./styles/main.css">
 <body>
   <main id="tweet-list">
-    <section role="toolbar" aria-label="Manage Tweets">
+    <section class="tweet-list__toolbar" role="toolbar" aria-label="Manage Tweets">
       <h1>Tweet list</h1>
       <button id="add-tweet" @click="addTweet">Add</button>
       <button id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotLastTweet">Remove</button>
     </section>
     <section id="tweet-container" aria-label="List of tweets">
-      <article class="tweet" v-for="(tweet, index) in feed" id="post-num">
+      <article class="tweet" v-for="(tweet, index) in feed" v-bind:id="'post-'+index" v-key="index"  v-cloak>
         <img v-bind:src="tweet.author.avatar" alt="Profile picture" class="tweet__avatar">
         <span class="tweet__name">{{tweet.author.name}}</span>
         <span class="tweet__username">{{tweet.author.handle}}</span>
         <span class="tweet__context"><span v-if="tweet.isReply">replied and </span>has <span class="tweet__followers">{{tweet.author.numFollowers}}</span> followers</span>
-        <a href="/user/post-num" class="tweet__timestamp">
+        <a href="'/user/post-'+index" class="tweet__timestamp">
           {{tweet.created.human}}
         </a>
         <div class="tweet__message">

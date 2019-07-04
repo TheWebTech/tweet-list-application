@@ -74,3 +74,16 @@
   font-weight: bold;
 }
 .tweet__expand summary::-webkit-details-marker {color: transparent;}
+
+.tweet-list__toolbar{
+  padding:15px; /*padding guestimated because hi-fi mock did not have the buttons and is different dimensions than wireframe.*/
+}
+#remove-tweet[disabled]{
+  visibility:hidden;
+}
+
+/* show skeleton screen*/
+.tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context{
+  background:gray;
+  color:transparent;
+}
