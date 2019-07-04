@@ -28,7 +28,16 @@ var app = new Vue({
   },
   beforeMount:{
     //add sampleTweet to Feed
-  }
+  },
+  computed:{
+    isNotLastTweet:{
+      //check if more than 1 tweet exists, if true, button stays visible.
+    }
+  },
+  methods:{
+    //add tweet
+    //remove last tweet
+  },
 
 })
 /*
