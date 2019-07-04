@@ -1,17 +1,31 @@
 .tweet {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  margin:8px 6px 9px; /* sizes pulled from hi fidelity mock */
+  border-top: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
   display: grid;
   grid-template-columns:80px auto auto 1fr;
   grid-template-rows:auto auto;
   grid-template-areas: "avatar name username date" "avatar context . ." "expand expand expand expand";
+  padding: 7px 5px; /* sizes pulled from hi fidelity mock */
 }
 .tweet__avatar{grid-area: avatar;}
-.tweet__name{grid-area: name;}
+.tweet__name{
+  grid-area: name;
+  font-weight:bold;
+  color:#333333;
+}
 .tweet__timestamp{grid-area:date;}
 .tweet__username{grid-area: username;}
 .tweet__context{grid-area:context;}
-
+.tweet__message{grid-area:message;}
 .tweet__expand{
-    grid-area: expand;
+  grid-area: expand;
+  text-align:right;
+  width: fit-content;
+  margin: 0 0 0 auto;
 }
+.tweet__expand summary{
+  text-decoration:underline;
+  list-style-image:none;
+}
+.tweet__expand summary::-webkit-details-marker {color: transparent;}
