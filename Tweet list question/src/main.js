@@ -32,7 +32,12 @@ var app = new Vue({
   computed:{
     isNotLastTweet:function(){
       //check if more than 1 tweet exists, if true, button stays visible.
-      return true;
+      if(this.feed.length > 1){
+        return false;
+      }
+      else{
+        return true;
+      }
     }
   },
   methods:{
@@ -44,13 +49,11 @@ var app = new Vue({
     },
     //add tweet
     addTweet:function(){
-      console.log("Add Tweet Fired");
       this.feed.push(CANNED_TWEET);
     },
     //remove last tweet
     removeLastTweet:function(){
       this.feed.pop();
-      console.log("removeLastTweet Fired");
     },
   },
 
