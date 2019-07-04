@@ -6,7 +6,7 @@
   border-bottom: 1px solid #ccc;
   border-color: var(--lightGray); 
   display: grid;
-  grid-template-columns:80px auto auto 1fr;
+  grid-template-columns:54px auto auto 1fr;
   grid-template-rows:auto auto;
   grid-template-areas: "avatar name username date" "avatar context context ." "message message message message" "expand expand expand expand";
   padding: 7px 5px; /* sizes pulled from hi fidelity mock */
@@ -50,6 +50,7 @@
   text-align:right;
   width: fit-content;
   margin: 0 0 0 auto;
+  cursor:pointer;
 }
 .tweet__expand summary{
   text-decoration:underline;
