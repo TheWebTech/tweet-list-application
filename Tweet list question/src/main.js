@@ -45,9 +45,11 @@ var app = new Vue({
     //add tweet
     addTweet:function(){
       console.log("Add Tweet Fired");
+      this.feed.push(CANNED_TWEET);
     },
     //remove last tweet
     removeLastTweet:function(){
+      this.feed.pop();
       console.log("removeLastTweet Fired");
     },
   },
