@@ -23,12 +23,11 @@ const CANNED_TWEET = {
 var app = new Vue({
   el: '#tweet-list',
   data: {
-    sampleTweet: CANNED_TWEET,
-    feed:{}
+    feed:[]
   },
-  mounted:function(){
+  beforeMount(){
     //add sampleTweet to Feed
-    this.loadSample;
+    this.loadSample();
   },
   computed:{
     isNotLastTweet:function(){
@@ -38,7 +37,10 @@ var app = new Vue({
   },
   methods:{
     loadSample:function(){
-      this.feed.push(sampleTweet);
+      //console.log("sampleTweet",app.sampleTweet);
+      //console.log("this.feed",this.feed);
+      this.feed.push(CANNED_TWEET);
+      //this.feed.push(app.sampleTweet);
     },
     //add tweet
     addTweet:function(){
