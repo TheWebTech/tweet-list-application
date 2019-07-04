@@ -122,6 +122,7 @@
 .tweet[v-cloak] .tweet__name{
   width:89px;
   max-width:100%;
+  border-radius:5px;
 }
 .tweet[v-cloak] .tweet__message{
   margin-top:10px;
@@ -138,3 +139,16 @@
   border-radius:5px;
 }
 .tweet[v-cloak] .tweet__message:before{width:100%}
+.tweet[v-cloak] *{
+  transition:background .5s ease-out;
+}
+.tweet[v-cloak] .tweet__timestamp:after{
+  width:77px;
+  height:18px;
+  display:inline-block;
+  content:"";
+  position:relative;
+  margin:0 0 0 auto;
+  background-color:#5494fb;
+  border-radius:5px;
+}
