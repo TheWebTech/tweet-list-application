@@ -18,6 +18,7 @@
   max-width:100%;
   font-family:Arial, Helvetica, sans-serif; /* can't easily identify actual font's in use since file is a png and not a layered design file */
   font-size: 15px; /* font sizes are estimated since hi-fi mock is a png and not a design file */
+  min-height:154px; /* reduces noticable reflow when content loads*/
 }
 
 .tweet:first-child{
@@ -32,12 +33,18 @@
   width: 48px;
   object-fit:cover; /* This is to allow the image to look good using fixed height and width regardless of user uploaded image aspect ratio normally image resizing serverside would be done. Limit actual image size, and if possible an automated cropping system as well. */
   object-position:center; 
+  /*styles for alt text to prevent flash of ugly content, while still providing information to screen readers and search engines*/
+  font-size:10px;/**/
+  text-align: center;
+  color:#333;
+  color:var(--darkGray);
 }
 .tweet__name{
   grid-area: name;
   font-weight:bold;
   color:#333;
   color: var(--darkGray);
+  margin-right:5px;
 }
 .tweet__timestamp{
   grid-area:date;
@@ -87,10 +94,26 @@
   background:#333;
   background:var(--darkGray);
 }
-.tweet[v-cloak] , .tweet[v-cloak] > a{
-  background:
-}
+
+
 .tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context, .tweet[v-cloak] .tweet__timestamp{
-  
   color:transparent;
+  height:22px;
+}
+.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context{
+  background:#888;
+  background:var(--gray);
+  border-radius:5px;
+  
+}
+.tweet[v-cloak] .tweet__username{
+  width:105px; 
+}
+.tweet[v-cloak] .tweet__context{
+  width:130px;
+}
+.tweet[v-cloak] .tweet__name{
+  background:#333;
+  background:var(--darkGray);
+  width:89px;
 }
