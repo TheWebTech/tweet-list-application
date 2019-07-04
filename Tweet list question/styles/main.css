@@ -95,10 +95,11 @@
   background:var(--darkGray);
 }
 
+.tweet[v-cloak] #remove-tweet{visibility:hidden;}
 
 .tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context, .tweet[v-cloak] .tweet__timestamp{
   color:transparent;
-  height:22px;
+  height:18px;
 }
 .tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context{
   background:#888;
@@ -108,12 +109,32 @@
 }
 .tweet[v-cloak] .tweet__username{
   width:105px; 
+  max-width:100%;
 }
 .tweet[v-cloak] .tweet__context{
   width:130px;
+  max-width:100%;
 }
-.tweet[v-cloak] .tweet__name{
+.tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__message:before,.tweet[v-cloak] .tweet__message:after{
   background:#333;
   background:var(--darkGray);
-  width:89px;
 }
+.tweet[v-cloak] .tweet__name{
+  width:89px;
+  max-width:100%;
+}
+.tweet[v-cloak] .tweet__message{
+  margin-top:10px;
+}
+.tweet[v-cloak] .tweet__message p{display:none;}
+.tweet[v-cloak] .tweet__message:before,.tweet[v-cloak] .tweet__message:after{
+  display: inline-block;
+  height:18px;
+  width: 350px;
+  content:"";
+  margin-bottom:2px;
+  position:relative;
+  max-width:100%;
+  border-radius:5px;
+}
+.tweet[v-cloak] .tweet__message:before{width:100%}
