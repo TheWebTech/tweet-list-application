@@ -19,6 +19,8 @@
   border-color:var(--lightGray);
   height: 48px;
   width: 48px;
+  object-fit:cover; /* This is to allow the image to look good using fixed height and width regardless of user uploaded image aspect ratio normally image resizing serverside would be done. Limit actual image size, and if possible an automated cropping system as well. */
+  object-position:center; 
 }
 .tweet__name{
   grid-area: name;
@@ -30,6 +32,7 @@
   grid-area:date;
   color:#5494fb;
   text-decoration:none;
+  text-align: right;
 }
 .tweet__username{
   grid-area: username;
