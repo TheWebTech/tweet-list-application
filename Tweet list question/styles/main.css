@@ -1,10 +1,17 @@
 .tweet {
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
+  display: grid;
+  grid-template-columns:80px auto auto 1fr;
+  grid-template-rows:auto auto;
+  grid-template-areas: "avatar name username date" "avatar context . ." "expand expand expand expand";
 }
-.tweet__avatar{}
-.tweet__name{}
-.tweet__username{}
-.tweet__context{}
-.tweet__context{}
-.tweet__expand{}
+.tweet__avatar{grid-area: avatar;}
+.tweet__name{grid-area: name;}
+.tweet__timestamp{grid-area:date;}
+.tweet__username{grid-area: username;}
+.tweet__context{grid-area:context;}
+
+.tweet__expand{
+    grid-area: expand;
+}
