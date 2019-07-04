@@ -36,9 +36,13 @@ var app = new Vue({
   },
   methods:{
     //add tweet
-    addTweet:{},
+    addTweet:{
+      console.log("Add Tweet Fired");
+    },
     //remove last tweet
-    removeLastTweet:{},
+    removeLastTweet:{
+      console.log("removeLastTweet Fired");
+    },
   },
 
 })

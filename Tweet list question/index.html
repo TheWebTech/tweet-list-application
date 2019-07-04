@@ -7,8 +7,8 @@
   <main id="tweet-list">
     <section role="toolbar" aria-label="Manage Tweets">
       <h1>Tweet list</h1>
-      <button id="add-tweet">Add</button>
-      <button id="remove-tweet">Remove</button>
+      <button id="add-tweet" @click="addTweet">Add</button>
+      <button id="remove-tweet" @click="removeLastTweet">Remove</button>
     </section>
     <section id="tweet-container" aria-label="List of tweets">
       <article class="tweet" v-for="(tweet, index) in feed" id="post-num">
