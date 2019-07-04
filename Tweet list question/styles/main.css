@@ -83,7 +83,14 @@
 }
 
 /* show skeleton screen*/
-.tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context{
-  background:gray;
+.tweet[v-cloak] .tweet__avatar{
+  background:#333;
+  background:var(--darkGray);
+}
+.tweet[v-cloak] , .tweet[v-cloak] > a{
+  background:
+}
+.tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context, .tweet[v-cloak] .tweet__timestamp{
+  
   color:transparent;
 }
