@@ -36,7 +36,9 @@ var app = new Vue({
   },
   methods:{
     //add tweet
+    addTweet:{},
     //remove last tweet
+    removeLastTweet:{},
   },
 
 })
