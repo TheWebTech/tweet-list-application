@@ -1,7 +1,10 @@
 .tweet {
+  --lightGray:#ccc;
+  box-sizing:border-box;
   margin:8px 6px 9px; /* sizes pulled from hi fidelity mock */
   border-top: 1px solid #ccc; 
   border-bottom: 1px solid #ccc;
+  border-color: var(--lightGray); 
   display: grid;
   grid-template-columns:80px auto auto 1fr;
   grid-template-rows:auto auto;
@@ -9,7 +12,14 @@
   padding: 7px 5px; /* sizes pulled from hi fidelity mock */
   font-size: 15px; /* font sizes are estimated since hi-fi mock is a png and not a design file */
 }
-.tweet__avatar{grid-area: avatar;}
+.tweet__avatar{
+  grid-area: avatar;
+  padding:2px;
+  border:1px solid #ccc; 
+  border-color:var(--lightGray);
+  height: 48px;
+  width: 48px;
+}
 .tweet__name{
   grid-area: name;
   font-weight:bold;
