@@ -12,6 +12,7 @@
   padding: 7px 5px; /* sizes pulled from hi fidelity mock */
   width: 574px;
   max-width:100%;
+  font-family:Arial, Helvetica, sans-serif; /* can't easily identify actual font's in use since file is a png and not a layered design file */
   font-size: 15px; /* font sizes are estimated since hi-fi mock is a png and not a design file */
 }
 .tweet__avatar{
