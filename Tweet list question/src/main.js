@@ -26,21 +26,26 @@ var app = new Vue({
     sampleTweet: CANNED_TWEET,
     feed:{}
   },
-  beforeMount:{
+  mounted:function(){
     //add sampleTweet to Feed
+    this.loadSample;
   },
   computed:{
-    isNotLastTweet:{
+    isNotLastTweet:function(){
       //check if more than 1 tweet exists, if true, button stays visible.
+      return true;
     }
   },
   methods:{
+    loadSample:function(){
+      this.feed.push(sampleTweet);
+    },
     //add tweet
-    addTweet:{
+    addTweet:function(){
       console.log("Add Tweet Fired");
     },
     //remove last tweet
-    removeLastTweet:{
+    removeLastTweet:function(){
       console.log("removeLastTweet Fired");
     },
   },
