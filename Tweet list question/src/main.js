@@ -25,6 +25,9 @@ var app = new Vue({
   data: {
     sampleTweet: CANNED_TWEET,
     feed:{}
+  },
+  beforeMount:{
+    //add sampleTweet to Feed
   }
 
 })
