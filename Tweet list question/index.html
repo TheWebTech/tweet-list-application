@@ -12,7 +12,7 @@
     </section>
     <section id="tweet-container" aria-label="List of tweets">
       <article class="tweet" v-for="(tweet, index) in feed" v-bind:id="'post-'+index" v-key="index"  v-cloak>
-        <img v-bind:src="tweet.author.avatar" alt="Profile picture" class="tweet__avatar">
+        <img v-bind:src="tweet.author.avatar" alt="Profile picture" class="tweet__avatar" height="42" width="42" v-bind:alt='tweet.author.name+"&#x27;s avatar"'>
         <span class="tweet__name">{{tweet.author.name}}</span>
         <span class="tweet__username">{{tweet.author.handle}}</span>
         <span class="tweet__context"><span v-if="tweet.isReply">replied and </span>has <span class="tweet__followers">{{tweet.author.numFollowers}}</span> followers</span>
