@@ -5,19 +5,31 @@
   display: grid;
   grid-template-columns:80px auto auto 1fr;
   grid-template-rows:auto auto;
-  grid-template-areas: "avatar name username date" "avatar context . ." "expand expand expand expand";
+  grid-template-areas: "avatar name username date" "avatar context context ." "message message message message" "expand expand expand expand";
   padding: 7px 5px; /* sizes pulled from hi fidelity mock */
+  font-size: 15px; /* font sizes are estimated since hi-fi mock is a png and not a design file */
 }
 .tweet__avatar{grid-area: avatar;}
 .tweet__name{
   grid-area: name;
   font-weight:bold;
-  color:#333333;
+  color:#333;
+  
 }
-.tweet__timestamp{grid-area:date;}
-.tweet__username{grid-area: username;}
+.tweet__timestamp{
+  grid-area:date;
+  color:#5494fb;
+  text-decoration:none;
+}
+.tweet__username{
+  grid-area: username;
+  color:#888;
+}
 .tweet__context{grid-area:context;}
-.tweet__message{grid-area:message;}
+.tweet__message{
+  grid-area:message;
+  color:#333;
+}
 .tweet__expand{
   grid-area: expand;
   text-align:right;
