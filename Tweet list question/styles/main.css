@@ -1,6 +1,6 @@
+*{box-sizing:border-box;}
 .tweet {
   --lightGray:#ccc;
-  box-sizing:border-box;
   margin:8px 6px 9px; /* sizes pulled from hi fidelity mock */
   border-top: 1px solid #ccc; 
   border-bottom: 1px solid #ccc;
