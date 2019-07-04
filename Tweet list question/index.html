@@ -11,7 +11,7 @@
       <button id="remove-tweet">Remove</button>
     </section>
     <section id="tweet-container" aria-label="List of tweets">
-      <article class="tweet" id="post-num">
+      <article class="tweet" v-for="(tweet, index) in feed" id="post-num">
         <img src="" alt="Profile picture" class="tweet__avatar">
         <span class="tweet__name">Joe Schmoe</span>
         <span class="tweet__username">@mrjoeschmoe</span>
@@ -27,7 +27,6 @@
           Extra Details! The wireframes and doc don't explain what is intended to be here.
         </details>
       </article>
-      {{message}}
     </section>
   </main>
   

@@ -12,7 +12,8 @@ const CANNED_TWEET = {
     avatar: 'http://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg'
   },
 
-  tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray'
+  tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray',
+  isReply:false
 };
 
 /* functions needed*/
@@ -22,10 +23,12 @@ const CANNED_TWEET = {
 var app = new Vue({
   el: '#tweet-list',
   data: {
-    message: 'Vue is working correctly!'
+    sampleTweet: CANNED_TWEET,
+    feed:{}
   }
-})
 
+})
+/*
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#add-tweet').addEventListener('click', function() {
     const newTweet = document.createElement('div');
@@ -33,4 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
     newTweet.innerHTML = 'Here is a tweet!';
     document.querySelector('#tweet-container').appendChild(newTweet);
   });
-});
+});*/
