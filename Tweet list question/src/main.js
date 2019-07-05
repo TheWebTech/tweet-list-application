@@ -50,3 +50,15 @@ var app = new Vue({
   },
 
 })
+
+//keyboard shortcuts, because moving a mouse is tedious.
+document.onkeydown = keydown;
+function keydown(evt){
+  if (!evt) evt = event;
+  if (evt.ctrlKey && evt.keyCode==78){ //CTRL+N
+    app.addTweet();
+  }
+  else if (evt.ctrlKey && evt.keyCode==90){ //CTRL+Z
+    app.removeLastTweet();
+  }
+}
