@@ -61,4 +61,7 @@ function keydown(evt){
   else if (evt.ctrlKey && evt.keyCode==90){ //CTRL+Z
     app.removeLastTweet();
   }
+  else if (evt.ctrlKey && evt.keyCode==72){ //CTRL+H
+    console.log("show instructions for using keyboard shortcuts")
+  }
 }
