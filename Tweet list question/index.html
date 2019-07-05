@@ -9,6 +9,7 @@
       <h1>Tweet list</h1>
       <button id="add-tweet" @click="addTweet">Add<span class="sr-only"> Tweet</span></button>
       <button  v-cloak id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotLastTweet">Remove<span class="sr-only"> Tweet</span></button>
+      <button id="kbd-shortcuts" @click="openShortcuts">Keyboard Shortcuts</button>
     </section>
     <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log" aria-atomic="false" aria-relevant="additions text"></section>
       <article class="tweet" v-for="(tweet, index) in feed" :id="'post-'+index" :key="index"  v-cloak>
@@ -28,11 +29,50 @@
         </details>
       </article>
     </section>
+
+
   </main>
+  <!-- dialog -->
+
+<div id="dialog-container">
+
+    <div tabindex="-1"e></div>
+  
+    
+    <dialog aria-labelledby="dialog-title">
+    
+      <button type="button" aria-label="Close this dialog window">
+        &times;
+      </button>
+      <h1 id="dialog-title">Keyboard Shortcuts</h1>
+      <table>
+        <tbody>
+          <tr>
+            <th>Shortcut</th>
+            <th>Action</th>
+          </tr>
+          <tr>
+            <th><kbd><kbd>Ctrl</kbd>+<kbd>N</kbd></kbd></th>
+            <td>Add New Tweet</td>
+          </tr>
+          <tr>
+            <th><kbd><kbd>Ctrl</kbd>+<kbd>z</kbd></kbd></th>
+            <td>Remove Last Tweet</td>
+          </tr>
+          <tr>
+            <th><kbd><kbd>Ctrl</kbd>+<kbd>H</kbd></kbd></th>
+            <td>Open keyboard shortcuts info panels</td>
+          </tr>
+        </tbody>
+      </table>
+  
+     
+    </dialog>
+  </div>
   
   <script src="./lib/dev-vue.js"></script>
   <!--<script src="./lib/vue.min.js"></script>   -->
-  <script src="./lib/a11y-dialog.min.js"></script>
+  <script src="./lib/dialog-polyfill.min.js"></script>
   <script src="./lib/jquery-2.1.4.min.js"></script>
   <script src="./src/main.js"></script>
 </body>

@@ -195,3 +195,22 @@
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+/* make shortcuts resemble button icons */
+kbd kbd{
+  border-radius: 3px;
+  padding: 1px 2px 0;
+  border: 1px solid black;
+}
+dialog button {
+  /* margin: 0 0 0 auto; */
+  /* display: inline-block; */
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 25px;
+  background: none;
+  border: 0;
+  -webkit-appearance: none;
+}
+dialog h1{margin-top:0;}

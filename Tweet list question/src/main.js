@@ -18,6 +18,17 @@ const CANNED_TWEET = {
 /* I left Canned Tweet in this form without moving it directly into the vue instance as I figured you guys want to kind of simulate pulling the data from somewhere. Normally you'd be querying against an api. */
 
 
+
+
+var dialog = document.querySelector('dialog');
+    dialogPolyfill.registerDialog(dialog);
+var dialogClose = document.querySelector('dialog button');
+
+    dialogClose.addEventListener("click",function(e){
+      dialog.close();
+    },false);
+    
+
 var app = new Vue({
   el: '#tweet-list',
   data: {
@@ -47,6 +58,9 @@ var app = new Vue({
     removeLastTweet:function(){
       this.feed.pop(); //remove last tweet from feed
     },
+    openShortcuts:function(){
+      dialog.showModal();
+    }
   },
 
 })
@@ -63,5 +77,12 @@ function keydown(evt){
   }
   else if (evt.ctrlKey && evt.keyCode==72){ //CTRL+H
     console.log("show instructions for using keyboard shortcuts")
+
+    // Show the dialog
+    if (!dialog.open){
+      dialog.showModal();
+    } else{
+      dialog.close();
+    }
   }
 }
