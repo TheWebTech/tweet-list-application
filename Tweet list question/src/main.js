@@ -15,19 +15,16 @@ const CANNED_TWEET = {
   tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray',
   isReply:false
 };
+/* I left Canned Tweet in this form without moving it directly into the vue instance as I figured you guys want to kind of simulate pulling the data from somewhere. Normally you'd be querying against an api. */
 
-/* functions needed*/
-/* Add Tweet */
-/* Remove last Tweet */
 
 var app = new Vue({
   el: '#tweet-list',
   data: {
-    feed:[]
+    feed:[] //feed stores all of the tweets and their data
   },
   beforeMount(){
-    //add sampleTweet to Feed
-    this.loadSample();
+    this.loadSample(); //add canned tweet to feed before vue renders
   },
   computed:{
     isNotLastTweet:function(){
@@ -42,28 +39,14 @@ var app = new Vue({
   },
   methods:{
     loadSample:function(){
-      //console.log("sampleTweet",app.sampleTweet);
-      //console.log("this.feed",this.feed);
-      this.feed.push(CANNED_TWEET);
-      //this.feed.push(app.sampleTweet);
+      this.feed.push(CANNED_TWEET); //add canned tweet to feed
     },
-    //add tweet
     addTweet:function(){
-      this.feed.push(CANNED_TWEET);
+      this.feed.push(CANNED_TWEET); //add canned tweet to feed
     },
-    //remove last tweet
     removeLastTweet:function(){
-      this.feed.pop();
+      this.feed.pop(); //remove last tweet from feed
     },
   },
 
 })
-/*
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#add-tweet').addEventListener('click', function() {
-    const newTweet = document.createElement('div');
-    newTweet.className = 'tweet';
-    newTweet.innerHTML = 'Here is a tweet!';
-    document.querySelector('#tweet-container').appendChild(newTweet);
-  });
-});*/
