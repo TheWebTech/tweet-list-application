@@ -110,7 +110,7 @@
 .tweet-list__toolbar{
   padding:15px; /*padding guestimated because hi-fi mock did not have the buttons and is different dimensions than wireframe.*/
 }
-#remove-tweet[disabled]{
+#remove-tweet[disabled],#remove-tweet[v-cloak]{
   visibility:hidden;
 }
 
