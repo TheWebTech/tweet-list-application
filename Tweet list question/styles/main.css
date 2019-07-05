@@ -114,9 +114,13 @@
   width: 100px;/* width guesstimated based on wireframe, hifi did not include buttons*/
   max-width: 100%;
 }
-#add-tweet{margin-right:20px;}/* guestimated from wireframe */
+.tweet-list__container button{margin-right:20px;}/* guestimated from wireframe */
 #remove-tweet[disabled],#remove-tweet[v-cloak]{
   visibility:hidden;
+}
+#kbd-shortcuts{
+  width:auto;
+  margin-right:0;
 }
 
 /* show skeleton screen*/
