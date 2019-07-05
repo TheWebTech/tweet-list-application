@@ -108,8 +108,13 @@
 .tweet__expand summary::-webkit-details-marker {color: transparent;}
 
 .tweet-list__toolbar{
-  padding:15px; /*padding guestimated because hi-fi mock did not have the buttons and is different dimensions than wireframe.*/
+  padding:15px; /* padding guestimated because hi-fi mock did not have the buttons and is different dimensions than wireframe.*/
 }
+.tweet-list__toolbar button {
+  width: 100px;/* width guesstimated based on wireframe, hifi did not include buttons*/
+  max-width: 100%;
+}
+#add-tweet{margin-right:20px;}/* guestimated from wireframe */
 #remove-tweet[disabled],#remove-tweet[v-cloak]{
   visibility:hidden;
 }
