@@ -8,7 +8,7 @@
     <section class="tweet-list__toolbar" role="toolbar" aria-label="Manage Tweets">
       <h1>Tweet list</h1>
       <button id="add-tweet" @click="addTweet">Add<span class="sr-only"> Tweet</span></button>
-      <button id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotLastTweet">Remove<span class="sr-only"> Tweet</span></button>
+      <button  v-cloak id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotLastTweet">Remove<span class="sr-only"> Tweet</span></button>
     </section>
     <section id="tweet-container" aria-label="List of tweets">
       <article class="tweet" v-for="(tweet, index) in feed" :id="'post-'+index" :key="index"  v-cloak>
@@ -16,7 +16,7 @@
         <span class="tweet__name">{{tweet.author.name}}</span>
         <span class="tweet__username">{{tweet.author.handle}}</span>
         <span class="tweet__context"><span v-if="tweet.isReply">replied and </span>has <span class="tweet__followers">{{tweet.author.numFollowers}}</span> followers</span>
-        <a :href="'/user/post-'+index" class="tweet__timestamp">
+        <a :href="'./user/post-'+index" class="tweet__timestamp">
           {{tweet.created.human}}
         </a>
         <div class="tweet__message">
