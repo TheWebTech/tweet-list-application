@@ -42,7 +42,7 @@ var app = new Vue({
       this.feed.push(CANNED_TWEET); //add canned tweet to feed
     },
     addTweet:function(){
-      this.feed.push(CANNED_TWEET); //add canned tweet to feed
+      app.loadSample(); //add canned tweet to feed
     },
     removeLastTweet:function(){
       this.feed.pop(); //remove last tweet from feed
