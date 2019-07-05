@@ -179,3 +179,14 @@
   background-color:#5494fb;
   border-radius:5px;
 }
+
+.sr-only { /* used to provide extra context for screen readers */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
