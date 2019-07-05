@@ -17,17 +17,10 @@ const CANNED_TWEET = {
 };
 /* I left Canned Tweet in this form without moving it directly into the vue instance as I figured you guys want to kind of simulate pulling the data from somewhere. Normally you'd be querying against an api. */
 
-
-
-/* setting up dialog element for keyboard shortcuts */
+/* create selectors for dialog elements */
 var dialog = document.querySelector('dialog');
-    dialogPolyfill.registerDialog(dialog);
 var dialogClose = document.querySelector('dialog button');
 
-    dialogClose.addEventListener("click",function(e){
-      dialog.close();
-    },false);
-    
 
 var app = new Vue({
   el: '#tweet-list',
@@ -35,6 +28,7 @@ var app = new Vue({
     feed:[] //feed stores all of the tweets and their data
   },
   beforeMount(){
+    this.initShortcutsDialog();//setup modal
     this.loadSample(); //add canned tweet to feed before vue renders
   },
   computed:{
@@ -58,6 +52,13 @@ var app = new Vue({
     removeLastTweet:function(){
       this.feed.pop(); //remove last tweet from feed
     },
+    initShortcutsDialog:function(){
+      /* setting up dialog element for keyboard shortcuts */
+      dialogPolyfill.registerDialog(dialog);
+      dialogClose.addEventListener("click",function(e){
+        dialog.close();
+      },false);
+    },
     openShortcuts:function(){
       dialog.showModal();
     }
@@ -76,9 +77,7 @@ function keydown(evt){
     app.removeLastTweet();
   }
   else if (evt.ctrlKey && evt.keyCode==72){ //CTRL+H
-    console.log("show instructions for using keyboard shortcuts")
-
-    // Show the dialog
+    // Show the dialog with kbd shortcuts if it's not already open
     if (!dialog.open){
       dialog.showModal();
     } else{
