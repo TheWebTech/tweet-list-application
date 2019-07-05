@@ -32,9 +32,9 @@ var app = new Vue({
     this.loadSample(); //add canned tweet to feed before vue renders
   },
   computed:{
-    isNotLastTweet:function(){
+    isNotTweetless:function(){
       //check if more than 1 tweet exists, if true, button stays visible.
-      if(this.feed.length > 1){
+      if(this.feed.length > 0){
         return false;
       }
       else{
@@ -74,7 +74,13 @@ function keydown(evt){
     app.addTweet();
   }
   else if (evt.ctrlKey && evt.keyCode==90){ //CTRL+Z
-    app.removeLastTweet();
+    if(app.isNotTweetless){
+      console.error("Sorry, but you can't delete tweets that don't exist!");
+    }
+    else{
+      app.removeLastTweet();
+    }
+    
   }
   else if (evt.ctrlKey && evt.keyCode==72){ //CTRL+H
     // Show the dialog with kbd shortcuts if it's not already open
