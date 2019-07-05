@@ -10,7 +10,7 @@
       <button id="add-tweet" @click="addTweet">Add<span class="sr-only"> Tweet</span></button>
       <button  v-cloak id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotLastTweet">Remove<span class="sr-only"> Tweet</span></button>
     </section>
-    <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log">
+    <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log" aria-atomic="false" aria-relevant="additions text">
       <article class="tweet" v-for="(tweet, index) in feed" :id="'post-'+index" :key="index"  v-cloak>
         <img loading="lazy" :src="tweet.author.avatar" alt="Profile picture" class="tweet__avatar" height="42" width="42" :alt='tweet.author.name+"&#x27;s avatar"'>
         <span class="tweet__name">{{tweet.author.name}}</span>
