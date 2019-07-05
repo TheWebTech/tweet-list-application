@@ -19,7 +19,7 @@ const CANNED_TWEET = {
 
 
 
-
+/* setting up dialog element for keyboard shortcuts */
 var dialog = document.querySelector('dialog');
     dialogPolyfill.registerDialog(dialog);
 var dialogClose = document.querySelector('dialog button');
