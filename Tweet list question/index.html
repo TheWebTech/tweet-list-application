@@ -8,7 +8,7 @@
     <section class="tweet-list__toolbar" role="toolbar" aria-label="Manage Tweets">
       <h1>Tweet list</h1>
       <button id="add-tweet" @click="addTweet">Add<span class="sr-only"> Tweet</span></button>
-      <button  v-cloak id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotTweetless">Remove<span class="sr-only"> Tweet</span></button>
+      <button  v-cloak id="remove-tweet" @click="removeLastTweet" :disabled="isNotTweetless">Remove<span class="sr-only"> Tweet</span></button>
       <button id="kbd-shortcuts" @click="openShortcuts">Keyboard Shortcuts</button>
     </section>
     <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log" aria-atomic="false" aria-relevant="additions text"></section>
@@ -18,7 +18,7 @@
         <span class="tweet__username">{{tweet.author.handle}}</span>
         <span class="tweet__context"><span v-if="tweet.isReply">replied and </span>has <span class="tweet__followers">{{tweet.author.numFollowers}}</span> followers</span>
         <a :href="'./user/post-'+index" class="tweet__timestamp">
-          {{tweet.created.human}}
+          <time :datetime="tweet.created.date.toISOString()">{{tweet.created.human}}</time>
         </a>
         <div class="tweet__message">
           <p>{{tweet.tweet}}</p>
