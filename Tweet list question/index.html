@@ -7,9 +7,9 @@
   <main id="tweet-list">
     <section class="tweet-list__toolbar" role="toolbar" aria-label="Manage Tweets">
       <h1>Tweet list</h1>
-      <button id="add-tweet" @click="addTweet">Add<span class="sr-only"> Tweet</span></button>
-      <button  v-cloak id="remove-tweet" @click="removeLastTweet" :disabled="isNotTweetless">Remove<span class="sr-only"> Tweet</span></button>
-      <button id="kbd-shortcuts" @click="openShortcuts">Keyboard Shortcuts</button>
+      <button id="add-tweet" title="Ctrl + N" @click="addTweet">Add<span class="sr-only"> Tweet</span></button>
+      <button title="Ctrl + Z" v-cloak id="remove-tweet" @click="removeLastTweet" :disabled="isNotTweetless">Remove<span class="sr-only"> Tweet</span></button>
+      <button title="Ctrl + H" id="kbd-shortcuts" @click="openShortcuts">Keyboard Shortcuts</button>
     </section>
     <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log" aria-atomic="false" aria-relevant="additions text"></section>
       <article class="tweet" v-for="(tweet, index) in feed" :id="'post-'+index" :key="index"  v-cloak>
