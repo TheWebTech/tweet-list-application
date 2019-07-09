@@ -98,8 +98,7 @@
   margin: 0 0 0 auto;
 }
 .tweet__expand summary{
-  text-decoration:underline;
-  list-style-image:none;
+  list-style:none;
   text-align:right;
   cursor:pointer;
   color:#b7aaaa;
