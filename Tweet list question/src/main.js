@@ -13,7 +13,7 @@ const CANNED_TWEET = {
   },
 
   tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray',
-  isReply:false
+  isReply:true
 };
 /* I left Canned Tweet in this form without moving it directly into the vue instance as I figured you guys want to kind of simulate pulling the data from somewhere. Normally you'd be querying against an api. */
 
