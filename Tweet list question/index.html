@@ -11,7 +11,7 @@
       <button title="Ctrl + Z" v-cloak id="remove-tweet" @click="removeLastTweet" :disabled="isNotTweetless">Remove<span class="sr-only"> Tweet</span></button>
       <button title="Ctrl + H" id="kbd-shortcuts" @click="openShortcuts">Keyboard Shortcuts</button>
     </section>
-    <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log" aria-atomic="false" aria-relevant="additions text"></section>
+    <section id="tweet-container" aria-label="List of tweets" aria-live="polite" aria-role="log" aria-atomic="false" aria-relevant="additions text">
       <article class="tweet" v-for="(tweet, index) in feed" :id="'post-'+index" :key="index"  v-cloak>
         <img loading="lazy" :src="tweet.author.avatar" alt="Profile picture" class="tweet__avatar" height="42" width="42" :alt='tweet.author.name+"&#x27;s avatar"'>
         <span class="tweet__name">{{tweet.author.name}}</span>
