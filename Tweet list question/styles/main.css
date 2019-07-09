@@ -1,4 +1,196 @@
+*{-webkit-box-sizing:border-box;box-sizing:border-box;}
+.tweet-container{
+  margin:8px 6px 9px; /* sizes pulled from hi fidelity mock */
+}
 .tweet {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  --lightGray:#ccc;
+  --gray:#888;
+  --darkGray:#333;
+ 
+  border-bottom: 1px solid #ccc;
+  border-color: var(--lightGray); 
+  display: -ms-grid; 
+  display: grid;
+  -ms-grid-columns:54px auto auto 1fr;
+  grid-template-columns:54px auto auto 1fr;
+  -ms-grid-rows:auto auto;
+  grid-template-rows:auto auto;
+      grid-template-areas: "avatar name username date" "avatar context context ." "message message message message" "expand expand expand expand";
+  padding: 7px 5px; /* sizes pulled from hi fidelity mock */
+  width: 574px;
+  max-width:100%;
+  font-family:Arial, Helvetica, sans-serif; /* can't easily identify actual font's in use since file is a png and not a layered design file */
+  font-size: 15px; /* font sizes are estimated since hi-fi mock is a png and not a design file */
+  min-height:154px; /* reduces noticable reflow when content loads*/
+}
+
+.tweet:first-child{
+  border-top: 1px solid #ccc; 
+}
+.tweet__avatar{
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: avatar;
+  padding:2px;
+  border:1px solid #ccc; 
+  border-color:var(--lightGray);
+  height: 48px;
+  width: 48px;
+  -o-object-fit:cover;
+     object-fit:cover; /* This is to allow the image to look good using fixed height and width regardless of user uploaded image aspect ratio normally image resizing serverside would be done. Limit actual image size, and if possible an automated cropping system as well. */
+  -o-object-position:center;
+     object-position:center; 
+  /*styles for alt text to prevent flash of ugly content, while still providing information to screen readers and search engines*/
+  font-size:10px;/**/
+  text-align: center;
+  color:#333;
+  color:var(--darkGray);
+}
+.tweet__name{
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: name;
+  font-weight:bold;
+  color:#333;
+  color: var(--darkGray);
+  margin-right:5px;
+}
+.tweet__timestamp{
+  -ms-grid-row:1;
+  -ms-grid-column:4;
+  grid-area:date;
+  color:#5494fb;
+  text-decoration:none;
+  text-align: right;
+}
+.tweet__username{
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: username;
+  color:#888;
+  color:var(--gray);
+}
+.tweet__context{
+  -ms-grid-row:2;
+  -ms-grid-column:2;
+  -ms-grid-column-span:2;
+  grid-area:context;
+  color: #888;
+  color:var(--gray);
+}
+.tweet__message{
+  -ms-grid-row:3;
+  -ms-grid-column:1;
+  -ms-grid-column-span:4;
+  grid-area:message;
+  color:#333;
+  color: var(--darkGray);
+}
+.tweet__expand{
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: expand;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 0 0 auto;
+}
+.tweet__expand summary{
+  list-style:none;
+  text-align:right;
+  cursor:pointer;
+  color:#b7aaaa;
+  font-weight: bold;
+}
+.tweet__expand summary::-webkit-details-marker {color: transparent;}
+
+.tweet-list__toolbar{
+  padding:15px; /* padding guestimated because hi-fi mock did not have the buttons and is different dimensions than wireframe.*/
+}
+.tweet-list__toolbar button {
+  width: 100px;/* width guesstimated based on wireframe, hifi did not include buttons*/
+  max-width: 100%;
+}
+#add-tweet{margin-right:20px;}/* guestimated from wireframe */
+#remove-tweet[disabled],#remove-tweet[v-cloak]{
+  visibility:hidden;
+}
+
+/* show skeleton screen*/
+.tweet[v-cloak] .tweet__avatar{
+  background:#333;
+  background:var(--darkGray);
+}
+
+.tweet[v-cloak] #remove-tweet{visibility:hidden;}
+
+.tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context, .tweet[v-cloak] .tweet__timestamp{
+  color:transparent;
+  height:18px;
+}
+.tweet[v-cloak] .tweet__username,.tweet[v-cloak] .tweet__context{
+  background:#888;
+  background:var(--gray);
+  border-radius:5px;
+  
+}
+.tweet[v-cloak] .tweet__username{
+  width:105px; 
+  max-width:100%;
+}
+.tweet[v-cloak] .tweet__context{
+  width:130px;
+  max-width:100%;
+}
+.tweet[v-cloak] .tweet__name,.tweet[v-cloak] .tweet__message:before,.tweet[v-cloak] .tweet__message:after{
+  background:#333;
+  background:var(--darkGray);
+}
+.tweet[v-cloak] .tweet__name{
+  width:89px;
+  max-width:100%;
+  border-radius:5px;
+}
+.tweet[v-cloak] .tweet__message{
+  margin-top:10px;
+}
+.tweet[v-cloak] .tweet__message p{display:none;}
+.tweet[v-cloak] .tweet__message:before,.tweet[v-cloak] .tweet__message:after{
+  display: inline-block;
+  height:18px;
+  width: 350px;
+  content:"";
+  margin-bottom:2px;
+  position:relative;
+  max-width:100%;
+  border-radius:5px;
+}
+.tweet[v-cloak] .tweet__message:before{width:100%}
+.tweet[v-cloak] *{
+  -webkit-transition:background .5s ease-out;
+  -o-transition:background .5s ease-out;
+  transition:background .5s ease-out;
+}
+.tweet[v-cloak] .tweet__timestamp:after{
+  width:77px;
+  height:18px;
+  display:inline-block;
+  content:"";
+  position:relative;
+  margin:0 0 0 auto;
+  background-color:#5494fb;
+  border-radius:5px;
+}
+
+.sr-only { /* used to provide extra context for screen readers */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }

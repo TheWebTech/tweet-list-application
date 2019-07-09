@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tweet list question</title>
-    <link rel="stylesheet" type="text/css" href="./styles/main.css">
-  <body>
-    <h1>Tweet list</h1>
-    <button id="add-tweet">Add</button>
-    <button id="remove-tweet">Remove</button>
-
-    <div id="tweet-container">
-    </div>
-
-    <script src="./lib/jquery-2.1.4.min.js"></script>
-    <script src="./src/main.js"></script>
-  </body>
+<head>
+  <title>Tweet list question</title>
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+<body>
+  <main id="tweet-list">
+    <section class="tweet-list__toolbar" role="toolbar" aria-label="Manage Tweets">
+      <h1>Tweet list</h1>
+      <button id="add-tweet" @click="addTweet" title="→ One">Add<span class="sr-only"> Tweet</span></button>
+      <button  v-cloak id="remove-tweet" @click="removeLastTweet" v-bind:disabled="isNotLastTweet" title="Last Tweet">Remove<span class="sr-only">  Last Tweet</span></button>
+    </section>
+    <section id="tweet-container" aria-label="List of tweets">
+      <article class="tweet" v-for="(tweet, index) in feed" :id="'post-'+index" :key="index"  v-cloak>
+        <img loading="lazy" :src="tweet.author.avatar" alt="Profile picture" class="tweet__avatar" height="42" width="42" :alt='tweet.author.name+"&#x27;s avatar"'>
+        <span class="tweet__name">{{tweet.author.name}}</span>
+        <span class="tweet__username">{{tweet.author.handle}}</span>
+        <span class="tweet__context"><span v-if="tweet.isReply">replied and </span>has <span class="tweet__followers">{{tweet.author.numFollowers}}</span> followers</span>
+        <a :href="'./user/post-'+index" class="tweet__timestamp">
+          {{tweet.created.human}}
+        </a>
+        <div class="tweet__message">
+          <p>{{tweet.tweet}}</p>
+        </div>
+        <details class="tweet__expand">
+          <summary>Expand details</summary>
+          Extra Details! The wireframes and doc don't explain what is intended to be here.
+        </details>
+      </article>
+    </section>
+  </main>
+  
+  <script src="./lib/vue.min.js"></script>
+  <script src="./src/main.js"></script>
+</body>
 </html>

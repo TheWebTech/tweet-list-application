@@ -12,14 +12,41 @@ const CANNED_TWEET = {
     avatar: 'http://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg'
   },
 
-  tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray'
+  tweet: 'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray',
+  isReply:true
 };
+/* I left Canned Tweet in this form without moving it directly into the vue instance as I figured you guys want to kind of simulate pulling the data from somewhere. Normally you'd be querying against an api. */
 
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#add-tweet').addEventListener('click', function() {
-    const newTweet = document.createElement('div');
-    newTweet.className = 'tweet';
-    newTweet.innerHTML = 'Here is a tweet!';
-    document.querySelector('#tweet-container').appendChild(newTweet);
-  });
-});
+
+var app = new Vue({
+  el: '#tweet-list',
+  data: {
+    feed:[] //feed stores all of the tweets and their data
+  },
+  beforeMount(){
+    this.loadSample(); //add canned tweet to feed before vue renders
+  },
+  computed:{
+    isNotLastTweet:function(){
+      //check if more than 1 tweet exists, if true, button stays visible.
+      if(this.feed.length > 1){
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+  },
+  methods:{
+    loadSample:function(){
+      this.feed.push(CANNED_TWEET); //add canned tweet to feed
+    },
+    addTweet:function(){
+      this.feed.push(CANNED_TWEET); //add canned tweet to feed
+    },
+    removeLastTweet:function(){
+      this.feed.pop(); //remove last tweet from feed
+    },
+  },
+
+})
